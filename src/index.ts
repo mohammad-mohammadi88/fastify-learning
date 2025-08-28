@@ -27,7 +27,19 @@ await server.register(fastifySwagger, {
             version: packageJson.version,
         },
         host: `${host}:${port}`,
+        tags: [
+            { name: "Products", description: "Products Routes" },
+            { name: "Users", description: "Users Routes" },
+        ],
         schemes: ["http"],
+        securityDefinitions: {
+            apiKey: {
+                type: "apiKey",
+                name: "Authorization",
+                in: "header",
+            },
+        },
+
         consumes: ["application/json"],
         produces: ["application/json"],
     },

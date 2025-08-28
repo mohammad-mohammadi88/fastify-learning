@@ -5,14 +5,21 @@ import {
     loginUserOptions,
     getUserOptions,
 } from "@/options/user.options.js";
+import addTags from "@/utils/addTags.js";
 
 const userRoutes = async (server: FastifyInstance) => {
-    server.post("/register", createUserOptions);
-    server.post("/login", loginUserOptions);
-    server.get("/:id", {
-        ...getUserOptions,
-        preValidation: [server.authenticate],
-    });
+    server.post("/register", addTags(createUserOptions, "Products"));
+    server.post("/login", addTags(loginUserOptions, "Products"));
+    server.get(
+        "/:id",
+        addTags(
+            {
+                ...getUserOptions,
+                preValidation: [server.authenticate],
+            },
+            "Products"
+        )
+    );
 };
 
 export default userRoutes;

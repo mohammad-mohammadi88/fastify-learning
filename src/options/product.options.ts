@@ -14,6 +14,7 @@ export const postProductOptions: MyRouteOptions<{
     schema: {
         response: { 201: productSchema.$ref("productResponseSchema") },
         body: productSchema.$ref("createProductSchema"),
+        security: [{ apiKey: [] }],
     },
     handler: createProductHandler,
 };
@@ -21,7 +22,10 @@ export const postProductOptions: MyRouteOptions<{
 export const getAllProductsOptions: MyRouteOptions<{
     Reply: Product[] | string;
 }> = {
-    schema: { response: { 200: productSchema.$ref("productsResponseSchema") } },
+    schema: {
+        response: { 200: productSchema.$ref("productsResponseSchema") },
+        security: [{ apiKey: [] }],
+    },
     handler: getAllProductsHandler,
 };
 
@@ -29,6 +33,9 @@ export const getSingleProductOptions: MyRouteOptions<{
     Reply: Product | string;
     Params: { id: string };
 }> = {
-    schema: { response: { 200: productSchema.$ref("productResponseSchema") } },
+    schema: {
+        response: { 200: productSchema.$ref("productResponseSchema") },
+        security: [{ apiKey: [] }],
+    },
     handler: getSingleProductHandler,
 };

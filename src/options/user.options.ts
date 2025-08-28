@@ -44,6 +44,7 @@ export const getUserOptions: MyRouteOptions<{
         response: {
             200: userSchema.$ref("getUserSchema"),
         },
+        security: [{ apiKey: [] }],
     },
     handler: getUserHandler,
 };

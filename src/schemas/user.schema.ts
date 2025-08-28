@@ -27,9 +27,12 @@ export const loginUserSchema = z.object({ email, password });
 
 export const getUserSchema = z.object({ id, email, name });
 
-export default buildJsonSchemas({
-    authResponseSchema,
-    createUserSchema,
-    getUserSchema,
-    loginUserSchema,
-});
+export default buildJsonSchemas(
+    {
+        authResponseSchema,
+        createUserSchema,
+        getUserSchema,
+        loginUserSchema,
+    },
+    { $id: "UserSchemas" }
+);
