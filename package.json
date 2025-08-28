@@ -1,0 +1,35 @@
+{
+    "name": "fastify",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.jddds",
+    "scripts": {
+        "dev": "tsx watch src/index.ts",
+        "build": "tsc && tsc-alias",
+        "start": "node dist/index.js"
+    },
+    "keywords": [],
+    "author": "mohammad",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "@fastify/jwt": "^7.2.4",
+        "@fastify/swagger": "^8.15.0",
+        "@fastify/swagger-ui": "^1.10.2",
+        "@prisma/client": "^6.15.0",
+        "bcrypt": "^6.0.0",
+        "dotenv": "^17.2.1",
+        "fastify": "^4.29.1",
+        "fastify-zod": "^1.4.0",
+        "prisma": "^6.15.0",
+        "zod": "^3.25.76",
+        "zod-to-json-schema": "^3.24.6"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
+        "@types/node": "^24.3.0",
+        "tsc-esm-fix": "^3.1.2",
+        "tsx": "^4.20.5",
+        "typescript": "^5.9.2"
+    }
+}
