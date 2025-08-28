@@ -69,7 +69,6 @@ const addNewSchemas = (schemas: JsonSchema[]) =>
     server.listen({ port, host }, async (error, address) => {
         if (error) {
             // log error
-            console.log(error);
             server.log.error(error, error.message);
 
             // disconnect prisma

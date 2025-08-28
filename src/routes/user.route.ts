@@ -6,14 +6,13 @@ import {
     getUserOptions,
 } from "@/options/user.options.js";
 
-const userRoutes = (server: FastifyInstance) => {
+const userRoutes = async (server: FastifyInstance) => {
     server.post("/register", createUserOptions);
     server.post("/login", loginUserOptions);
     server.get("/:id", {
         ...getUserOptions,
         preValidation: [server.authenticate],
     });
-    return server;
 };
 
 export default userRoutes;

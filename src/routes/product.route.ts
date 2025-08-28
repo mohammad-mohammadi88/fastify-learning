@@ -5,7 +5,7 @@ import {
 } from "@/options/product.options.js";
 import type { FastifyInstance } from "fastify";
 
-const productRoutes = (server: FastifyInstance) => {
+const productRoutes = async (server: FastifyInstance) => {
     // validation
     server.addHook("preValidation", server.authenticate);
 
@@ -13,7 +13,6 @@ const productRoutes = (server: FastifyInstance) => {
     server.post("/", postProductOptions);
     server.get("/", getAllProductsOptions);
     server.get("/:id", getSingleProductOptions);
-    return server;
 };
 
 export default productRoutes;
